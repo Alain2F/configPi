@@ -1,0 +1,181 @@
+#
+#
+# Copyright (C) 2026  Alain Fortier
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+
+Catalogue des options de compilation
+Les options de compilation occupent 5 lignes au début du programme .ino
+Fichier: OptionsCompilation.txt
+
+Section 1: Compilation par Arduino IDE  (ne sert plus)
+
+====Pour ESP32 MH+ET partition 1Mb prog 1Mb OTA et 2 Mb FileSystem
+// python-build-start
+// /opt/arduino-1.8.13/arduino
+// esp32:esp32:mhetesp32minikit:FlashFreq=80,PartitionScheme=default --preserve-temp-files
+// /dev/ttyUSB0
+// python-build-end
+ 
+====Pour ESP32 MH+ET partition 1.9Mb prog 1.9Mb OTA et 1.9 Kb FileSystem (Appli BLE)
+// python-build-start
+// /opt/arduino-1.8.13/arduino
+// esp32:esp32:mhetesp32minikit:FlashFreq=80,PartitionScheme=min_spiffs,UploadSpeed=921600,DebugLevel=none
+// /dev/ttyUSB0
+// python-build-end
+
+====Pour ESP8266 D1 Mini partition 1Mb prog 1Mb OTA et 2 Mb FileSystem
+// python-build-start
+// /opt/arduino-1.8.13/arduino
+// esp8266:esp8266:d1_mini --preserve-temp-files
+// /dev/ttyUSB0
+// python-build-end
+
+====Pour ESP8266 D1 Mini partition 1Mb prog 1Mb OTA et 2 Mb FileSystem
+// python-build-start
+// /opt/arduino-1.8.13/arduino
+// esp8266:esp8266:d1_mini:xtal=80,vt=flash,exception=legacy,ssl=all,eesz=4M2M,ip=lm2f,dbg=Disabled,lvl=None____,wipe=none,baud=921600
+// /dev/ttyUSB0
+// python-build-end
+
+**********************************************************************
+Section 2: Conpilation par arduino-cli (plus rapide: utilise une cache)
+
+====Pour ESP32 MH+ET partition 1Mb prog 1Mb OTA et 2 Mb FileSystem
+// python-build-start
+// ~/bin/arduino-cli
+// esp32:esp32:mhetesp32minikit:FlashFreq=80,PartitionScheme=default 
+// /dev/ttyUSB0
+// python-build-end
+
+====Pour ESP8266 D1 Mini partition 1Mb prog 1Mb OTA et 2 Mb FileSystem
+// python-build-start
+// ~/bin/arduino-cli
+// esp8266:esp8266:d1_mini 
+// /dev/ttyUSB0
+// python-build-end
+
+====Pour ESP8266 D1 Mini Pro partition 1Mb prog 1Mb OTA et 14 Mb FileSystem
+// python-build-start
+// ~/bin/arduino-cli
+// esp8266:esp8266:d1_mini_pro
+// /dev/ttyUSB0
+// python-build-end
+
+====Pour ESP32 dev kit Kit generique sur proto board (sans init Flash)
+// python-build-start
+// ~/bin/arduino-cli
+// esp32:esp32:esp32:JTAGAdapter=default,PSRAM=disabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,LoopCore=1,EventsCore=1,DebugLevel=none,EraseFlash=none,ZigbeeMode=default 
+// /dev/ttyUSB0
+// python-build-end
+
+====Pour ESP32 dev kit Kit generique sur proto board (avec init Flash)
+// python-build-start
+// ~/bin/arduino-cli
+// esp32:esp32:esp32:JTAGAdapter=default,PSRAM=disabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,LoopCore=1,EventsCore=1,DebugLevel=none,EraseFlash=all,ZigbeeMode=default 
+// /dev/ttyUSB0
+// python-build-end
+
+====Pour ESP32 Lolin C3 Mini avec version Development de ESP32 (2.0.3 RC1) 29 Avr 2022
+// python-build-start
+// ~/bin/arduino-cli
+// esp32:esp32:lolin_c3_mini:CDCOnBoot=default,PartitionScheme=default,CPUFreq=160,FlashFreq=80,UploadSpeed=921600,DebugLevel=none,EraseFlash=none
+// /dev/ttyACM0
+// python-build-end
+
+====Pour ESP32 Lolin S2 Mini avec version Development de ESP32 (2.0.3 RC1) 29 Avr 2022
+// python-build-start
+// ~/bin/arduino-cli
+// esp32:esp32:lolin_s2_mini:CDCOnBoot=default,MSCOnBoot=default,DFUOnBoot=default,PartitionScheme=default,DebugLevel=none
+// /dev/ttyUSB0
+// python-build-end
+
+====Pour ESP32 Lolin S3 Mini avec version Stable de ESP32 (2.0.14) 7 Janv 2024
+// python-build-start
+// ~/bin/bin/arduino-cli
+// esp32:esp32:lolin_s3_mini:FlashMode=qio,LoopCore=1,EventsCore=1,USBMode=hwcdc,CDCOnBoot=cdc,MSCOnBoot=default,DFUOnBoot=default,UploadMode=default,PartitionScheme=default,CPUFreq=240,UploadSpeed=921600,DebugLevel=none,EraseFlash=none
+// /dev/ttyACM0
+// python-build-end
+
+====Pour PICO rp2040 SANS FileSystem version Stable de rp2040:rp2040 (3.6.3) 1 Fev 2024
+// python-build-start
+// ~/bin/arduino-cli
+// rp2040:rp2040:rpipico:flash=2097152_0,freq=133,opt=Small,rtti=Disabled,stackprotect=Disabled,exceptions=Disabled,dbgport=Disabled,dbglvl=None,usbstack=picosdk,ipbtstack=ipv4only,uploadmethod=default 
+// /dev/ttyACM0
+// python-build-end
+
+====Pour PICO rp2040 AVEC FileSystem 1 Mb version Stable de rp2040:rp2040 (3.6.3) 1 Fev 2024
+// python-build-start
+// ~/bin/arduino-cli
+// rp2040:rp2040:rpipico:flash=2097152_1048576,freq=133,opt=Small,rtti=Disabled,stackprotect=Disabled,exceptions=Disabled,dbgport=Disabled,dbglvl=None,usbstack=picosdk,ipbtstack=ipv4only,uploadmethod=default 
+// /dev/ttyACM0
+// python-build-end
+
+====PicoW WiFi rp2040 AVEC FileSystem 1 Mb version Stable de rp2040:rp2040 (3.7.0) 7 Fev 2024
+// python-build-start
+// ~/bin/arduino-cli
+// rp2040:rp2040:rpipicow:flash=2097152_1048576,freq=133,opt=Small,rtti=Disabled,stackprotect=Disabled,exceptions=Disabled,dbgport=Disabled,dbglvl=None,usbstack=picosdk,wificountry=canada,ipbtstack=ipv4only,uploadmethod=default 
+// /dev/ttyACM0
+// python-build-end
+
+====Pico2W WiFi rp2350 AVEC FileSystem 3 Mb version Stable de rp2040:rp2040 (4.3.1) 4 Jan 2025
+// python-build-start
+// ~/bin/arduino-cli
+// rp2040:rp2040:rpipico2w:flash=4194304_3145728,arch=arm,freq=150,opt=Small,rtti=Disabled,stackprotect=Disabled,exceptions=Disabled,dbgport=Disabled,dbglvl=None,usbstack=picosdk,ipbtstack=ipv4only,uploadmethod=default
+// /dev/ttyACM0
+// python-build-end
+
+====Pico2W RISC WiFi rp2350 AVEC FileSystem 3 Mb version Stable de rp2040:rp2040 (5.3.0) 14 Oct 2025 architecture Risc V
+// python-build-start
+// ~/bin/arduino-cli
+// rp2040:rp2040:rpipico2w:flash=4194304_3145728,arch=riscv,freq=150,opt=Small,os=none,profile=Disabled,rtti=Disabled,stackprotect=Disabled,exceptions=Disabled,dbgport=Disabled,dbglvl=None,usbstack=picosdk,wificountry=worldwide,ipbtstack=ipv4only,uploadmethod=default
+// /dev/ttyACM0
+// python-build-end
+
+====iLab Challenger WiFi à valider 8 Jan 2025
+// python-build-start
+// ~/bin/arduino-cli
+// rp2040:rp2040:challenger_2040_wifi:flash=8388608_7340032,freq=133,opt=Small,rtti=Disabled,stackprotect=Disabled,exceptions=Disabled,dbgport=Disabled,dbglvl=None,usbstack=picosdk,ipbtstack=ipv4only,uploadmethod=default
+// /dev/ttyACM0
+// python-build-end
+
+====Pour ESP32  C3 Super Mini avec version Development de ESP32  selection ESP32 C3 Dev kit 11 Fev 2025
+// python-build-start
+// ~/bin/arduino-cli
+// esp32:esp32:esp32c3:JTAGAdapter=default,CDCOnBoot=default,PartitionScheme=default,CPUFreq=160,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=none,EraseFlash=none
+// /dev/ttyACM0
+// python-build-end
+
+====Pour ESP32  C3 Super Mini avec version XIAO c3 super mini  13 Fev 2025
+// python-build-start
+// ~/bin/arduino-cli
+// esp32:esp32:XIAO_ESP32C3:CDCOnBoot=default,PartitionScheme=default,CPUFreq=160,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=none,EraseFlash=none 
+// /dev/ttyACM0
+// python-build-end
+
+=====Arduino Nano Old Boot Loader
+// python-build-start
+// ~/bin/arduino-cli
+// arduino:avr:nano:cpu=atmega328old 
+// /dev/ttyUSB0
+// python-build-end
+
+=====Arduino Nano 3 NANO V3.0 16MHz - LGT8F328P-LQFP32 MiniEVB avec CORE special 
+// python-build-start
+// ~/bin/arduino-cli
+// lgt8fx:avr:328:arduino_isp=disable,clock_source=internal,clock_div=1,variant=modelP,upload_speed=57600 
+// /dev/ttyUSB0
+// python-build-end
