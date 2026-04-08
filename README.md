@@ -71,9 +71,9 @@ La phase 3 concerne le développement d'applications Node-Red.
 .13 Node-red dernière version dans un container Docker  
 
 - Certains scripts sont indépendants du menu :  
-	. UpdateArduino-cli.sh : installe une nouvelle version de arduino-cli 
-	. uninstallDockerFedora.sh : Sous Fedora élimine le programme Docker 
-	. ConfigUninstallDocker.sh : Sous Debian (Pi OS) élimine le programme Docker 
+	. UpdateArduino-cli.sh : installe une nouvelle version de arduino-cli  
+	. uninstallDockerFedora.sh : Sous Fedora élimine le programme Docker  
+	. ConfigUninstallDocker.sh : Sous Debian (Pi OS) élimine le programme Docker  
 
 **Note:** Le répertoire KitPi contient différents fichiers de configuration, programmes Python, 
 préférences,librairies, etc.
