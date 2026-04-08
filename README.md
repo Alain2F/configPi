@@ -29,9 +29,9 @@ du programme. Des exemples de ces 5 lignes sont disponibles dans le fichier
 - Description sommaire des 5 lignes:  
     -Ligne 1 = marqueur de début  
 	-Ligne 2 = la localisation du programme de compilation Ex: arduino-cli  
-	-ligne 3 = le nom du micro contrôleur et les options de compilation  
-	-ligne 4 = le nom du canal de communication pour le micro contrôleur  
-	-linge 5 = marqueur de fin  
+	-Ligne 3 = le nom du micro contrôleur et les options de compilation  
+	-Ligne 4 = le nom du canal de communication pour le micro contrôleur  
+	-Linge 5 = marqueur de fin  
 
 
 
@@ -70,7 +70,7 @@ La phase 3 concerne le développement d'applications Node-Red.
 .12 Docker run mosquitto  
 .13 Node-red dernière version dans un container Docker  
 
-- Certains scripts sont indépendants du menu :
+- Certains scripts sont indépendants du menu :  
 	. UpdateArduino-cli.sh : installe une nouvelle version de arduino-cli 
 	. uninstallDockerFedora.sh : Sous Fedora élimine le programme Docker 
 	. ConfigUninstallDocker.sh : Sous Debian (Pi OS) élimine le programme Docker 
