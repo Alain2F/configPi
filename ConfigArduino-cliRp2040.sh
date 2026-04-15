@@ -34,6 +34,16 @@ fi
 
 arduino-cli core install rp2040:rp2040 
 
+
+# pour rp2040  sur Ubuntu
+cd ~/configPi
+if [ -f ./.Ubuntu ]
+then
+	echo "Ajustement de la version python"
+	sudo apt install -y python-is-python3 
+	sudo apt install -y python3-serial
+fi
+
 # Pour le tool de chargement de LittleFs 
 cd ~/Downloads
 wget https://github.com/earlephilhower/arduino-pico-littlefs-plugin/releases/download/0.2.0/PicoLittleFS-0.2.0.zip
