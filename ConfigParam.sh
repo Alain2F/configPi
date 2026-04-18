@@ -74,7 +74,7 @@ else
     echo "1" > ./.phase1 
 fi
 #Verifie si Downloads existe 
-if [ -f ~/Downloads ]
+if [ -d "$HOME/Downloads" ]
 then  
 echo "Downloads existe "
 else 
