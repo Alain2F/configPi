@@ -67,6 +67,19 @@ if actionLine == "scompile":
    f.write('\n')
  sys.exit()
 
+#Cette section est utilisee pour la fonction monitor (terminal) 
+if actionLine == "monitor":
+   # seul le port est different
+   # EX_03_LB=Monitor ttyACM0 & Log
+   # EX_03_CM=arduino-cli monitor -p /dev/ttyACM0 -c BaudRate=115200 --timestamp | tee  -i -p --output-error=warn redir.txt
+   # EX_03_WD=/home/alain/
+   path1 = os.environ['HOME']
+   arduinoCommand = "arduino-cli monitor -p " + portLine + " -c BaudRate=115200 --timestamp | tee  -i -p --output-error=warn " + path1 + "/monitor.txt"
+   print (arduinoCommand)
+   presult = subprocess.call(arduinoCommand, shell=True)
+   print(" apres monitor")
+   sys.exit()
+
 # Cette section est utilisee pour la compilation et le upload 
 
 print("\n\n -- Arduino Command --")
@@ -87,3 +100,4 @@ else:
 # if actionLine == "upload":
  # puttyCmd = "sudo putty -load \"ConsoleSudo\""
  # subprocess.call(puttyCmd, shell=True)
+ 
